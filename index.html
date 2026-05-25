@@ -1,0 +1,234 @@
+# Resume-Builder-Website
+new repo
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resume Builder</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background:#f4f4f4;
+      padding:30px;
+    }
+
+    .container{
+      max-width:1000px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+
+    .form-section,
+    .resume-section{
+      background:white;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h1{
+      text-align:center;
+      margin-bottom:20px;
+      color:#333;
+    }
+
+    h2{
+      margin-bottom:15px;
+      color:#444;
+      border-bottom:2px solid #007bff;
+      padding-bottom:5px;
+    }
+
+    .input-group{
+      margin-bottom:15px;
+    }
+
+    label{
+      display:block;
+      margin-bottom:5px;
+      font-weight:bold;
+    }
+
+    input,
+    textarea{
+      width:100%;
+      padding:10px;
+      border:1px solid #ccc;
+      border-radius:5px;
+      font-size:14px;
+    }
+
+    textarea{
+      resize:none;
+      height:80px;
+    }
+
+    button{
+      width:100%;
+      padding:12px;
+      background:#007bff;
+      color:white;
+      border:none;
+      border-radius:5px;
+      font-size:16px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:#0056b3;
+    }
+
+    .resume{
+      line-height:1.8;
+    }
+
+    .resume h3{
+      color:#007bff;
+      margin-bottom:5px;
+    }
+
+    .resume p{
+      margin-bottom:10px;
+    }
+
+    .section-title{
+      margin-top:15px;
+      color:#222;
+      border-bottom:1px solid #ccc;
+    }
+
+    @media(max-width:768px){
+      .container{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Resume Builder Website</h1>
+
+  <div class="container">
+
+    <!-- FORM SECTION -->
+    <div class="form-section">
+
+      <h2>Enter Your Details</h2>
+
+      <div class="input-group">
+        <label>Full Name</label>
+        <input type="text" id="name" placeholder="Enter your name">
+      </div>
+
+      <div class="input-group">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Enter your email">
+      </div>
+
+      <div class="input-group">
+        <label>Phone</label>
+        <input type="text" id="phone" placeholder="Enter phone number">
+      </div>
+
+      <div class="input-group">
+        <label>Career Objective</label>
+        <textarea id="objective"></textarea>
+      </div>
+
+      <div class="input-group">
+        <label>Skills</label>
+        <textarea id="skills"></textarea>
+      </div>
+
+      <div class="input-group">
+        <label>Education</label>
+        <textarea id="education"></textarea>
+      </div>
+
+      <div class="input-group">
+        <label>Projects</label>
+        <textarea id="projects"></textarea>
+      </div>
+
+      <button onclick="generateResume()">
+        Generate Resume
+      </button>
+
+    </div>
+
+    <!-- RESUME PREVIEW -->
+    <div class="resume-section">
+
+      <h2>Resume Preview</h2>
+
+      <div class="resume" id="resumeOutput">
+
+        <h3>Your Name</h3>
+        <p>Email | Phone</p>
+
+        <h4 class="section-title">Career Objective</h4>
+        <p>Your objective will appear here.</p>
+
+        <h4 class="section-title">Skills</h4>
+        <p>Your skills will appear here.</p>
+
+        <h4 class="section-title">Education</h4>
+        <p>Your education details will appear here.</p>
+
+        <h4 class="section-title">Projects</h4>
+        <p>Your projects will appear here.</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    function generateResume(){
+
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let phone = document.getElementById("phone").value;
+      let objective = document.getElementById("objective").value;
+      let skills = document.getElementById("skills").value;
+      let education = document.getElementById("education").value;
+      let projects = document.getElementById("projects").value;
+
+      document.getElementById("resumeOutput").innerHTML = `
+
+        <h3>${name}</h3>
+        <p>${email} | ${phone}</p>
+
+        <h4 class="section-title">Career Objective</h4>
+        <p>${objective}</p>
+
+        <h4 class="section-title">Skills</h4>
+        <p>${skills}</p>
+
+        <h4 class="section-title">Education</h4>
+        <p>${education}</p>
+
+        <h4 class="section-title">Projects</h4>
+        <p>${projects}</p>
+
+      `;
+    }
+
+  </script>
+
+</body>
+</html>
